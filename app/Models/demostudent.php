@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lesson extends Model
+class demostudent extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','topic','pdflink','_token'];
-
+    protected $fillable = ['name','kidclass','email','kidage','parentphone','parentemail','parentname','_token'];
 }
