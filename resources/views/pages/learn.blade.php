@@ -59,10 +59,10 @@
 {{-- {{$progress->topic}} --}}
 
                                     @if ($GLOBALS['status'] == 'normal')
-                                        <a class="breadcrumb__step" href="quiz.php?id=' . $quiznum . '&new=1">{{$quiz->name}}</a>
+                                        <a class="breadcrumb__step" href="/quiz/{{$quiz->id}}">{{$quiz->name}}</a>
                                     @elseif($GLOBALS['status'] == 'active')
                                         <a class="breadcrumb__step breadcrumb__step--active"
-                                            href="quiz.php?id=' . $quiznum . '&new=0">{{$quiz->name}}</a>
+                                            href="/quiz/{{$quiz->id}}">{{$quiz->name}}</a>
                                     @else
 
 

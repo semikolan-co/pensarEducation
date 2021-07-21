@@ -14,8 +14,9 @@
           <center>Book a Free Class</center>
        </h3>
        <div class="bookclasscontent">
-          <form action="booking.php" method="post" autocomplete="on">
-             <input class="input" name="kidname" type="text" placeholder="Kid's Name" required>
+          <form action="{{route('adddemostudent')}}" method="post" autocomplete="on">
+            @csrf
+             <input class="input" name="name" type="text" placeholder="Kid's Name" required>
              <!-- <input class="input" name="kidclass" type="text" placeholder="Kid's Class" required> -->
              <select class="input" name="kidclass" type="text" placeholder="Kid's Class" required>
                 <option value="0" disabled>Kid's Class</option>

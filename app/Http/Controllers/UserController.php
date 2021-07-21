@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 use App\Models\Topic;
 use App\Models\Lesson;
 use App\Models\Quiz;
+use App\Models\Course;
 use App\Models\Progress;
 use Illuminate\Http\Request;
 use Auth;
@@ -30,5 +32,14 @@ class UserController extends Controller
             // return $topics;
         return view('pages.learn',$param);
          
+    }
+    
+    public function quiz($id){
+        $param = [
+            'courses' => Course::all(),
+            'quiz' => Quiz::find($id)
+
+        ];
+        return view('pages.quiz',$param); 
     }
 }
