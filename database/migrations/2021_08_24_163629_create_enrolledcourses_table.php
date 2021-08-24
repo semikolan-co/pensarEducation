@@ -15,6 +15,8 @@ class CreateEnrolledcoursesTable extends Migration
     {
         Schema::create('enrolledcourses', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->string('batch');
             $table->timestamps();
         });
     }
