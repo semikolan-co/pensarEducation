@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->string('kidage')->nullable();
-            $table->string('kidname')->nullable();
+            $table->string('kidclass')->nullable();
             $table->string('parentname')->nullable();
             $table->string('parentphone')->nullable();
             $table->string('parentemail')->nullable();
