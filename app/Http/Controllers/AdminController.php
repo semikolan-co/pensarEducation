@@ -14,12 +14,17 @@ use App\Models\Progress;
 class AdminController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('isuseradmin');
+    }
 
     public function index(){
         $param = [
             'demostudents' => demostudent::all(),
             'analytics' => [
-                'students' => User::count(),
+                'students' => User::count() - 1,
                 'topics' => Topic::count(),
                 'lessons' => Lesson::count(),
                 'quizzes' => Quiz::count()
@@ -30,7 +35,15 @@ class AdminController extends Controller
 
     public function demostudents(){
         $param = [
+            'title'=>'Demo Students',
             'demostudents' => demostudent::all()
+        ];
+        return view('pages.admin.demostudents',$param); 
+    }
+    public function students(){
+        $param = [
+            'title' => 'Students',
+            'demostudents' => user::where('id','>',1)->get()
         ];
         return view('pages.admin.demostudents',$param); 
     }
@@ -68,7 +81,7 @@ class AdminController extends Controller
 
     public function lessons(){
         $topics = Topic::all();
-        $topics = $topics->map(function ($topic) {
+        $topics = $topics->map(function ($topic) { 
             $lessons = Lesson::where('topic',$topic->id)->get();
             $lessons = $lessons->map(function ($lesson) {
                 $lesson->quizzes = Quiz::where('lesson',$lesson->id)->get();

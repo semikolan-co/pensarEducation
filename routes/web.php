@@ -29,18 +29,18 @@ Route::post('/adddemostudent',[HomeController::class,'adddemostudent'])->name('a
 
 
 //User Routes
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [UserController::class,'dashboard'])->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/learn/{course?}',[UserController::class,'learn'] )->name('learn');
-Route::middleware(['auth:sanctum', 'verified'])->get('/quiz/{id?}',[UserController::class,'quiz'] )->name('quiz');
+Route::get('/learn/{course?}',[UserController::class,'learn'] )->name('learn');
+Route::get('/quiz/{id}/{spice}',[UserController::class,'quiz'] )->name('quiz');
 
+Route::post('/updateprogress',[UserController::class,'updateprogress'])->name('updateprogress');
 
 
 //Admin routes
 Route::get('/admindash',[AdminController::class,'index'])->name('admin');
 Route::get('/demostudents',[AdminController::class,'demostudents'])->name('demostudents');
+Route::get('/students',[AdminController::class,'students'])->name('students');
 Route::get('/topics',[AdminController::class,'topics'])->name('topics');
 Route::get('/lessons',[AdminController::class,'lessons'])->name('lessons');
 Route::get('/quizzes',[AdminController::class,'quizzes'])->name('quizzes');

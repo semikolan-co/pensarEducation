@@ -51,18 +51,17 @@
  
  <div class="quizbox">
     <h1>{{$quiz->name}}</h1>
+    <div id="results"></div>
     <div id="quiz"></div>
     <button id="submit" class="button">Get Results</button>
-    <div id="results"></div>
  
  
-    <form id="myForm" method="post" action="updateprogress.php">
+    <form id="myForm{{$method}}" method="post" action="{{ route('updateprogress')}}">
+         @csrf
  
- 
-       <input type="hidden" name="quizid" value="">
+       <input type="hidden" name="quizid" value="{{$quiz->id}}">
        <input type="hidden" name="userid" value="{{Auth::id()}}">
-       <input type="hidden" name="submission" value="{{Auth::id()}}">
-       <!-- <input type="hidden" name="submit" type="submit" value="Submit form"> -->
+       {{-- <input type="hidden" name="submit" type="submit" value="Submit form">  --}}
     </form>
  
  </div>
@@ -149,15 +148,14 @@
                 answerContainers[i].style.color = 'red';
              }
           }
- 
           // show number of correct answers out of total
           resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
           if (numCorrect == questions.length) {
+            console.log("You are done");
+            //  var myForm = document.getElementById("myFormn");
  
-             var myForm = document.getElementById("myForm1");
- 
+             document.getElementById("myFormn").submit();
              if (typeof(myForm) != 'undefined' && myForm != null) {
-                document.getElementById("myForm1").submit();
                 console.log('Har')
              }
           }
