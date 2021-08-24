@@ -42,7 +42,7 @@
                 <div class="card flex-fill">
                     <div class="card-header">
 
-                        <a href="/demostudents" class="card-title h5 mb-0">Demo Students</a>
+                        <a href="/demostudents" class="card-title h5 mb-0">{{$title}}</a>
                     </div>
                     <table class="table table-hover my-0">
                         <thead>
@@ -70,7 +70,7 @@
                                 <td>{{$student->parentname}}</td>
                                 <td><a href="tel:{{$student->parentphone}}">{{$student->parentphone}}</a></td>
                                 <td><a href="mailto:{{$student->parentemail}}">{{$student->parentemail}}</a></td>
-                                <td><span class="badge bg-success">Done</span></td>
+                                {{-- <td><span class="badge bg-success">Done</span></td> --}}
                             </tr>
                             @endforeach
                         </tbody>

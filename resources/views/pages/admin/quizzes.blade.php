@@ -2,6 +2,7 @@
 @section('content')
 
 
+
 <!-- Button trigger modal -->
 <a href="{{route('getaddquiz')}}" class="btn btn-primary mb-1" >
     Add Quiz
@@ -109,15 +110,11 @@
         <div id="collapse{{$topic->id}}" class="accordion-collapse collapse @if($loop->iteration == 1) show @endif " aria-labelledby="heading{{$topic->id}}" data-bs-parent="#accordionExample">
           <div class="accordion-body">
 
-
-
-
             <div class="accordion" id="accordionSecondExample">
-
               @forelse($topic->lessons as $lesson)
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingSecond{{$lesson->id}}">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecond{{$lesson->id}}" aria-expanded="true" aria-controls="collapseSecond{{$lesson->id}}">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecond{{$lesson->id}}"  aria-controls="collapseSecond{{$lesson->id}}">
                     {{$lesson->name}}
                   </button>
                 </h2>

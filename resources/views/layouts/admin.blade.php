@@ -39,13 +39,19 @@
                         Pages
                     </li>
                     <?php
-                    $menus = [['Dashboard', 'admindash', 'sliders'], ['Demo Students', 'demostudents', 'sliders'], ['Students', 'students', 'sliders'], ['Topics', 'topics', 'sliders'], ['Lessons', 'lessons', 'sliders'], ['Quizzes', 'quizzes', 'sliders']];
+                    $menus = [
+                        ['Dashboard', 'admindash', 'sliders'],
+                        ['Demo Students', 'demostudents', 'user'],
+                        ['Students', 'students', 'user-check'], 
+                        ['Topics', 'topics', 'book'], 
+                        ['Lessons', 'lessons', 'book-open'], 
+                        ['Quizzes', 'quizzes', 'file-text']];
                     ?>
                     @foreach ($menus as $menu)
                         <li class="sidebar-item 
      @if ($menu[1]==Request::path()) active @endif ">
       <a class=" sidebar-link" href="/{{$menu[1]}}">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">
+                            <i class="align-middle" data-feather="{{$menu[2]}}"></i> <span class="align-middle">
                                 {{ $menu[0] }}
                                 </a>
                         </li>
@@ -235,7 +241,7 @@
                                     class="text-dark">{{ Auth::user()->name }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="d"><i class="align-middle me-1" data-feather="user"></i>
+                                {{-- <a class="dropdown-item" href="d"><i class="align-middle me-1" data-feather="user"></i>
                                     Profile</a>
                                 <a class="dropdown-item" href="#"><i class="align-middle me-1"
                                         data-feather="pie-chart"></i> Analytics</a>
@@ -244,8 +250,12 @@
                                         data-feather="settings"></i> Settings & Privacy</a>
                                 <a class="dropdown-item" href="#"><i class="align-middle me-1"
                                         data-feather="help-circle"></i> Help Center</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <div class="dropdown-divider"></div> --}}
+
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item" href="#">Log out</button>
+                                </form>
                             </div>
                         </li>
                     </ul>
@@ -261,23 +271,13 @@
                     <div class="row text-muted">
                         <div class="col-6 text-start">
                             <p class="mb-0">
-                                <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit
-                                        Demo</strong></a> &copy;
+                                <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>Dashboard</strong></a>
                             </p>
                         </div>
                         <div class="col-6 text-end">
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+                                   Developed by <a class="text-muted" href="https://adminkit.io/" target="_blank">SemiKolan</a>
                                 </li>
                             </ul>
                         </div>
