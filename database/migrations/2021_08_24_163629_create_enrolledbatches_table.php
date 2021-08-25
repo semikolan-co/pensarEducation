@@ -13,7 +13,7 @@ class CreateEnrolledcoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('enrolledcourses', function (Blueprint $table) {
+        Schema::create('enrolledbatches', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->string('batch');
@@ -28,6 +28,6 @@ class CreateEnrolledcoursesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('enrolledcourses');
+        Schema::dropIfExists('enrolledbatches');
     }
 }
