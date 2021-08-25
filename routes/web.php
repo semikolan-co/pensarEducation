@@ -43,9 +43,10 @@ Route::get('/demostudents',[AdminController::class,'demostudents'])->name('demos
 Route::get('/students',[AdminController::class,'students'])->name('students');
 Route::get('/topics',[AdminController::class,'topics'])->name('topics');
 Route::get('/lessons',[AdminController::class,'lessons'])->name('lessons');
-Route::get('/quizzes',[AdminController::class,'quizzes'])->name('quizzes');
+Route::get('/batches',[AdminController::class,'batches'])->name('batches');
 Route::get('/addquiz',[AdminController::class,'getaddquiz'])->name('getaddquiz');
 Route::get('/editquiz/{id}',[AdminController::class,'geteditquiz'])->name('geteditquiz');
+Route::get('/registerstudent/{id}',[AdminController::class,'registerstudent'])->name('register');
 
 
 

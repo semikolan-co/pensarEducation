@@ -42,10 +42,11 @@
                     $menus = [
                         ['Dashboard', 'admindash', 'sliders'],
                         ['Demo Students', 'demostudents', 'user'],
-                        ['Students', 'students', 'user-check'], 
+                        ['Students', 'students', 'user-check'],
+                        ['Batches', 'batches', 'user-check'], 
                         ['Topics', 'topics', 'book'], 
                         ['Lessons', 'lessons', 'book-open'], 
-                        ['Quizzes', 'quizzes', 'file-text']];
+                        ['Unlock Lesson', 'quizzes', 'file-text']];
                     ?>
                     @foreach ($menus as $menu)
                         <li class="sidebar-item 

@@ -102,7 +102,7 @@
       @forelse($topics as $topic)
       <div class="accordion-item">
         <h2 class="accordion-header" id="heading{{$topic->id}}">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$topic->id}}" aria-expanded="true" aria-controls="collapse{{$topic->id}}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$topic->id}}" aria-expanded="true" aria-controls="collapse{{$topic->id}}">
             {{$topic->name}}
           </button>
         </h2>
@@ -115,6 +115,7 @@
                       <th>#</th>
                       <th>Name</th>
                       <th>PDF Link</th>
+                      <th>Video Link</th>
                       <th>Action</th>
                   </tr>
               </thead>
@@ -126,6 +127,7 @@
                       <td>{{$loop->iteration}}</td>
                       <th>{{$lesson->name}}</th>
                       <th><a href="{{$lesson->pdflink}}"> {{$lesson->pdflink}}</a></th>
+                      <th><a href="{{$lesson->videolink}}"> {{$lesson->videolink}}</a></th>
                       <th>
                         <span class="edit"   data-id="{{$lesson->id}}"  data-topicid="{{$topic->id}}" data-name="{{$lesson->name}}" data-topic="{{$lesson->topic}}" data-pdflink="{{$lesson->pdflink}}" data-course="{{$topic->course}}" ><i class="align-middle"  data-feather="edit"></i></span>
                         <span class="delete"   data-id="{{$lesson->id}}" data-name="{{$lesson->name}}" data-topic="{{$lesson->topic}}" ><i class="align-middle"  data-feather="trash"></i></span>
