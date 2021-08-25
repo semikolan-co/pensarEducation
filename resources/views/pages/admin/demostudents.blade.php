@@ -71,6 +71,18 @@
                                 <td><a href="tel:{{$student->parentphone}}">{{$student->parentphone}}</a></td>
                                 <td><a href="mailto:{{$student->parentemail}}">{{$student->parentemail}}</a></td>
                                 {{-- <td><span class="badge bg-success">Done</span></td> --}}
+                                <td>
+                                  @if(isset($student->status))
+                                  @if($student->status)
+                                   <span class="badge bg-secondary">Registered</span>
+                                  @else
+                                   <a href="/registerstudent/{{$student->id}}" class="badge bt-sm btn bg-success">Register</a>
+                                  @endif
+                                  @else
+                                  <span class="badge bg-secondary">Registered</span>
+                                  
+                                  @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

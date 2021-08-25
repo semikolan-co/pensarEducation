@@ -10,6 +10,7 @@ use App\Models\Lesson;
 use App\Models\Quiz;
 use App\Models\Course;
 use App\Models\Progress;
+use App\Models\Batch;
 
 class AdminController extends Controller
 {
@@ -27,7 +28,7 @@ class AdminController extends Controller
                 'students' => User::count() - 1,
                 'topics' => Topic::count(),
                 'lessons' => Lesson::count(),
-                'quizzes' => Quiz::count()
+                'batches' => Batch::count(),
             ]
         ];
         return view('pages.admin.dashboard',$param); 
@@ -83,10 +84,10 @@ class AdminController extends Controller
         $topics = Topic::all();
         $topics = $topics->map(function ($topic) { 
             $lessons = Lesson::where('topic',$topic->id)->get();
-            $lessons = $lessons->map(function ($lesson) {
-                $lesson->quizzes = Quiz::where('lesson',$lesson->id)->get();
-                return $lesson;        
-            });
+            // $lessons = $lessons->map(function ($lesson) {
+            //     $lesson->quizzes = Quiz::where('lesson',$lesson->id)->get();
+            //     return $lesson;        
+            // });
             $topic->lessons= $lessons;
             return $topic;        
         });
@@ -114,6 +115,14 @@ class AdminController extends Controller
         ];
         return view('pages.admin.quizzes',$param); 
     }
+
+    public function batches(){
+        $param = [
+            'batches' => Batch::all(),
+            'courses' => Course::all()
+        ];
+        return view('pages.admin.batches',$param);
+    }   
 
 
 

@@ -43,7 +43,7 @@
                             ["Students","truck",$analytics['students']],
                             ["Topics","truck",$analytics['topics']],
                             ["Lessons","truck",$analytics['lessons']],
-                            ["Quizzes","truck", $analytics['quizzes']]
+                            ["Batches","truck", $analytics['batches']]
                         ];
                         ?>
 
@@ -194,7 +194,13 @@
                                 <td><a href="tel:{{$student->parentphone}}">{{$student->parentphone}}</a></td>
                                 <td><a href="mailto:{{$student->parentemail}}">{{$student->parentemail}}</a></td>
                                 
-                                <td><span class="badge bg-success">Done</span></td>
+                                <td>
+                                    @if($student->status)
+                                    <span class="badge bg-secondary">Registered</span>
+                                    @else
+                                    <a href="/registerstudent/{{$student->id}}" class="badge btn btn-sm bg-success">Register</a>
+                                    @endif
+                                </td>
                             </tr>
                             @empty @endforelse
                         </tbody>
